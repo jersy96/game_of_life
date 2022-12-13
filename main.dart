@@ -24,8 +24,12 @@ class Console {
   }
 
   void drawMatrix() {
-    for(var row in this.game!.matrix) {
-      print(row.join(' '));
+    for(var line in this.game!.matrix) {
+      String row = '';
+      for(int element in line) {
+        row += element > 0 ? ('\x1B[33m' + element.toString() + '\x1B[0m') : element.toString();
+      }
+      print(row);
     }
     // this.readString('');
   }
